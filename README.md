@@ -14,7 +14,7 @@ test pyramid, CI/CD, and a fully wired **Claude Agent** setup.
   **TreeView**, and a CSP-hardened **Webview** with a typed message protocol.
 - **Tests:** Vitest unit tests (mocked `vscode`) + `@vscode/test-cli` integration tests.
 - **Quality:** ESLint flat config (type-checked), Prettier, husky + lint-staged, commitlint.
-- **CI/CD:** GitHub Actions for verification and tag-based publishing (Marketplace + Open VSX).
+- **CI/CD:** GitHub Actions for verification and a tag-based GitHub Release with the `.vsix` (Marketplace/Open VSX publishing is ready to switch on when you want it).
 - **Claude-ready:** `CLAUDE.md`, skills, subagents, slash commands, a formatting hook,
   context7 MCP, and an installable plugin/marketplace manifest.
 
@@ -108,9 +108,12 @@ tag:
 git tag v0.1.0 && git push origin v0.1.0
 ```
 
-`release.yml` packages the `.vsix`, publishes to the VS Marketplace (needs the
-`VSCE_PAT` secret) and Open VSX (`OVSX_PAT`), and attaches the `.vsix` to a GitHub
-Release. See [`.claude/skills/vscode-publishing/SKILL.md`](.claude/skills/vscode-publishing/SKILL.md).
+`release.yml` builds, packages the `.vsix`, and attaches it to a **GitHub Release**.
+Marketplace/Open VSX publishing is intentionally not enabled yet — see
+[`.github/REPO_SETUP.md`](.github/REPO_SETUP.md) and
+[`.claude/skills/vscode-publishing/SKILL.md`](.claude/skills/vscode-publishing/SKILL.md)
+to turn it on (add the `VSCE_PAT` / `OVSX_PAT` secrets, or publish manually with
+`pnpm run publish:vsce` / `pnpm run publish:ovsx`).
 
 ## Notes
 

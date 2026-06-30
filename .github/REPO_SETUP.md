@@ -43,11 +43,12 @@ gh api -X PUT "repos/$REPO/branches/main/protection" --input .github/branch-prot
 
 ## Releases & packages
 
-Releases publish on tag push (`v*`) via [`release.yml`](workflows/release.yml):
-it builds, packages the `.vsix`, attaches it to the **GitHub Release**, and (if the
-secrets below are set) publishes to the VS Marketplace and Open VSX.
+Releases run on tag push (`v*`) via [`release.yml`](workflows/release.yml): it
+builds, packages the `.vsix`, and attaches it to the **GitHub Release**.
+Marketplace/Open VSX publishing is not enabled yet.
 
-**Settings → Secrets and variables → Actions** — add as needed:
+To enable it later, add these secrets (**Settings → Secrets and variables →
+Actions**) and re-add the publish steps to `release.yml`:
 
 | Secret     | Used for                  | Where to get it                                  |
 | ---------- | ------------------------- | ------------------------------------------------ |

@@ -17,7 +17,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   tests in a real host.
 - Tooling: ESLint (flat, type-checked), Prettier, husky + lint-staged, commitlint.
 - CI/CD: GitHub Actions for verify (lint/typecheck/test/package) and tag-based
-  release to the VS Marketplace and Open VSX.
+  release that attaches the `.vsix` to a GitHub Release (Marketplace/Open VSX ready to enable later).
 - Claude Agent setup: `CLAUDE.md`, skills, subagents, slash commands, a formatting
   hook, context7 MCP config, and a plugin/marketplace manifest.
 

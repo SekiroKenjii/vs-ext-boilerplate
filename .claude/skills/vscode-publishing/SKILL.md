@@ -30,11 +30,12 @@ Preferred: push a tag and let `.github/workflows/release.yml` do it.
 git tag v0.1.0 && git push origin v0.1.0
 ```
 
-The workflow packages the `.vsix`, publishes to the VS Marketplace (if `VSCE_PAT`
-secret is set) and Open VSX (if `OVSX_PAT` is set), and attaches the `.vsix` to a
-GitHub Release. Set the secrets in repo Settings → Secrets → Actions.
+The workflow builds, packages the `.vsix`, and attaches it to a GitHub Release.
+Marketplace/Open VSX publishing is not enabled in CI yet — add the `VSCE_PAT` /
+`OVSX_PAT` secrets (Settings → Secrets → Actions) and re-add publish steps to
+`release.yml` when ready.
 
-Manual fallback:
+Publish to the marketplaces manually:
 
 ```bash
 pnpm exec vsce publish --no-dependencies -p "$VSCE_PAT"

@@ -10,9 +10,6 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      VSCE_PAT: ${{ secrets.VSCE_PAT }}
-      OVSX_PAT: ${{ secrets.OVSX_PAT }}
     steps:
       - uses: actions/checkout@v7
 
@@ -31,16 +28,12 @@ jobs:
       - name: Package VSIX
         run: pnpm run package
 
-      - name: Publish to VS Marketplace
-        if: ${{ env.VSCE_PAT != '' }}
-        run: pnpm exec vsce publish --no-dependencies -p "$VSCE_PAT"
-
-      - name: Publish to Open VSX
-        if: ${{ env.OVSX_PAT != '' }}
-        run: pnpm exec ovsx publish --no-dependencies -p "$OVSX_PAT"
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
           files: '*.vsix'
           generate_release_notes: true
+# Marketplace / Open VSX publishing is intentionally NOT wired up yet.
+# To enable later: add VSCE_PAT / OVSX_PAT secrets (see .github/REPO_SETUP.md) and
+# either re-add publish steps here or run `pnpm run publish:vsce` / `publish:ovsx`
+# locally. The vscode-publishing skill documents the full procedure.
