@@ -40,7 +40,7 @@ jobs:
         run: pnpm exec ovsx publish --no-dependencies -p "$OVSX_PAT"
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: '*.vsix'
           generate_release_notes: true
