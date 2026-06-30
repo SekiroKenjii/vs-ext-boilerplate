@@ -1,0 +1,9 @@
+# Code owners are requested for review automatically on matching paths.
+# https://docs.github.com/articles/about-code-owners
+
+# Default owner for everything in the repo.
+* @SekiroKenjii
+
+# Tighten ownership of CI/CD, release, and Claude tooling if you grow a team:
+# /.github/    @SekiroKenjii
+# /.claude/    @SekiroKenjii
