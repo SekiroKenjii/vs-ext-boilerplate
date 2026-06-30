@@ -4,7 +4,7 @@ Thanks for contributing! This guide covers local setup and our conventions.
 
 ## Prerequisites
 
-- Node.js >= 20 (the repo pins 24 in `.nvmrc`).
+- Node.js >= 22.13 (required by pnpm 11; the repo pins 24 in `.nvmrc`).
 - pnpm via Corepack — no manual install needed:
   ```bash
   corepack enable

@@ -9,7 +9,7 @@
   "packageManager": "pnpm@11.9.0",
   "engines": {
     "vscode": "^1.96.0",
-    "node": ">=20"
+    "node": ">=22.13"
   },
   "repository": {
     "type": "git",
