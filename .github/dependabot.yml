@@ -10,8 +10,17 @@ updates:
         dependency-type: development
       production-dependencies:
         dependency-type: production
+    ignore:
+      # Keep @types/node aligned with the Node runtime (24); allow minor/patch
+      # within the major, but not major bumps ahead of the runtime.
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
       interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
