@@ -1,0 +1,15 @@
+{
+  "name": "vs-ext-boilerplate",
+  "owner": { "name": "your-name" },
+  "metadata": {
+    "description": "Claude Code skills, subagents, and commands for VS Code extension development.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "vscode-ext-boilerplate",
+      "source": "./",
+      "description": "VS Code extension development skills/agents/commands: Karpathy guidelines plus stack-specific playbooks (add-command, add-config, webview, testing, publishing)."
+    }
+  ]
+}

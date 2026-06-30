@@ -1,0 +1,21 @@
+allowBuilds:
+  # esbuild needs its postinstall to provision the platform binary.
+  esbuild: true
+  # Native deps only used during marketplace publish/login; not needed to
+  # build, test, or package, and their native builds often require toolchains
+  # that aren't present. Left disabled by default.
+  '@vscode/vsce-sign': false
+  keytar: false
+minimumReleaseAgeExclude:
+  - '@typescript-eslint/eslint-plugin@8.62.1'
+  - '@typescript-eslint/parser@8.62.1'
+  - '@typescript-eslint/project-service@8.62.1'
+  - '@typescript-eslint/scope-manager@8.62.1'
+  - '@typescript-eslint/tsconfig-utils@8.62.1'
+  - '@typescript-eslint/type-utils@8.62.1'
+  - '@typescript-eslint/types@8.62.1'
+  - '@typescript-eslint/typescript-estree@8.62.1'
+  - '@typescript-eslint/utils@8.62.1'
+  - '@typescript-eslint/visitor-keys@8.62.1'
+  - prettier@3.9.4
+  - typescript-eslint@8.62.1

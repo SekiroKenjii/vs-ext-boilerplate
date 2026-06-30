@@ -1,0 +1,11 @@
+{
+  // Type-checks the integration tests. The actual CommonJS output consumed by
+  // the VS Code host is produced by esbuild (scripts/build-tests.mjs), so this
+  // config only needs to type-check (noEmit is inherited from the base).
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "types": ["node", "mocha"]
+  },
+  "include": ["test/integration/**/*.ts"]
+}

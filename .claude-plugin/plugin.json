@@ -1,0 +1,13 @@
+{
+  "name": "vscode-ext-boilerplate",
+  "version": "0.1.0",
+  "description": "Skills, subagents, and slash commands for building VS Code extensions with the vs-ext-boilerplate conventions (includes the Karpathy guidelines).",
+  "author": { "name": "your-name" },
+  "homepage": "https://github.com/your-org/vs-ext-boilerplate",
+  "license": "MIT",
+  "keywords": ["vscode", "extension", "boilerplate", "typescript", "claude"],
+  "skills": ["./.claude/skills"],
+  "commands": ["./.claude/commands"],
+  "agents": ["./.claude/agents"],
+  "mcpServers": "./.mcp.json"
+}

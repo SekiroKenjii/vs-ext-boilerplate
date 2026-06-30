@@ -1,0 +1,11 @@
+# Normalize line endings to LF on checkout/commit
+* text=auto eol=lf
+
+# Treat these as binary
+*.vsix binary
+*.png binary
+*.jpg binary
+*.ico binary
+
+# Generated files: keep diffs collapsed in reviews
+pnpm-lock.yaml linguist-generated=true

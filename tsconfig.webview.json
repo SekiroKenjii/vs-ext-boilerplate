@@ -1,0 +1,9 @@
+{
+  // Webview front-end code (runs in a browser context, no Node APIs).
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": []
+  },
+  "include": ["src/ui/webview/client/**/*.ts"]
+}

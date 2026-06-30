@@ -1,0 +1,154 @@
+{
+  "name": "vs-ext-boilerplate",
+  "displayName": "VS Code Extension Boilerplate",
+  "description": "A production-grade TypeScript boilerplate for building VS Code extensions.",
+  "version": "0.1.0",
+  "publisher": "your-publisher-id",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "vscode": "^1.96.0",
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/vs-ext-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/vs-ext-boilerplate/issues"
+  },
+  "homepage": "https://github.com/your-org/vs-ext-boilerplate#readme",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "boilerplate",
+    "starter",
+    "typescript",
+    "template"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsExtBoilerplate.helloWorld",
+        "title": "Hello World",
+        "category": "Boilerplate"
+      },
+      {
+        "command": "vsExtBoilerplate.openPanel",
+        "title": "Open Panel",
+        "category": "Boilerplate"
+      },
+      {
+        "command": "vsExtBoilerplate.refreshExamples",
+        "title": "Refresh Examples",
+        "category": "Boilerplate",
+        "icon": "$(refresh)"
+      }
+    ],
+    "configuration": {
+      "title": "VS Code Extension Boilerplate",
+      "properties": {
+        "vsExtBoilerplate.greeting": {
+          "type": "string",
+          "default": "Hello",
+          "markdownDescription": "The greeting used by the **Hello World** command."
+        },
+        "vsExtBoilerplate.enableStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the boilerplate status bar item."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vsExtBoilerplate",
+          "title": "Boilerplate",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "vsExtBoilerplate": [
+        {
+          "id": "vsExtBoilerplate.examplesView",
+          "name": "Examples",
+          "icon": "media/icon.svg",
+          "contextualTitle": "Boilerplate Examples"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "vsExtBoilerplate.refreshExamples",
+          "when": "view == vsExtBoilerplate.examplesView",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "vsExtBoilerplate.helloWorld",
+        "key": "ctrl+alt+h",
+        "mac": "cmd+alt+h"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "build:prod": "node esbuild.mjs --production",
+    "watch": "node esbuild.mjs --watch",
+    "vscode:prepublish": "node esbuild.mjs --production",
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.webview.json && tsc -p tsconfig.test.json && tsc -p tsconfig.integration.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "compile:tests": "node scripts/build-tests.mjs",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
+    "pretest:integration": "pnpm run build && pnpm run compile:tests",
+    "test:integration": "vscode-test",
+    "test": "pnpm run test:unit && pnpm run test:integration",
+    "package": "vsce package --no-dependencies",
+    "publish:vsce": "vsce publish --no-dependencies",
+    "publish:ovsx": "ovsx publish --no-dependencies",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,mjs,cjs,json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.1.0",
+    "@commitlint/config-conventional": "^21.1.0",
+    "@eslint/js": "^10.0.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.13.2",
+    "@types/vscode": "^1.96.0",
+    "@vitest/coverage-v8": "^4.1.9",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "mocha": "^11.7.6",
+    "ovsx": "^1.0.2",
+    "prettier": "^3.9.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1",
+    "vitest": "^4.1.9"
+  }
+}
