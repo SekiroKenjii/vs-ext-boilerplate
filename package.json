@@ -2,7 +2,7 @@
   "name": "vs-ext-boilerplate",
   "displayName": "VS Code Extension Boilerplate",
   "description": "A production-grade TypeScript boilerplate for building VS Code extensions.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "your-publisher-id",
   "license": "MIT",
   "private": true,

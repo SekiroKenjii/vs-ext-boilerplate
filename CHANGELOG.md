@@ -6,6 +6,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-03
+
 ### Added
 
 - `pnpm run init` — one-time template initializer that rebrands the boilerplate into
@@ -26,5 +28,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Claude Agent setup: `CLAUDE.md`, skills, subagents, slash commands, a formatting
   hook, context7 MCP config, and a plugin/marketplace manifest.
 
-[Unreleased]: https://github.com/your-org/vs-ext-boilerplate/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/your-org/vs-ext-boilerplate/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/your-org/vs-ext-boilerplate/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/your-org/vs-ext-boilerplate/releases/tag/v0.1.0
