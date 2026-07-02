@@ -28,11 +28,25 @@ jobs:
       - name: Package VSIX
         run: pnpm run package
 
+      # The release body mirrors this version's section in CHANGELOG.md.
+      - name: Extract release notes from CHANGELOG.md
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          awk -v ver="$version" '
+            index($0, "## [" ver "]") == 1 { found = 1; next }
+            /^## \[/ && found { exit }
+            found { print }
+          ' CHANGELOG.md > "$RUNNER_TEMP/release-notes.md"
+          if ! grep -q '[^[:space:]]' "$RUNNER_TEMP/release-notes.md"; then
+            echo "CHANGELOG.md has no section for $version — roll the changelog before tagging" >&2
+            exit 1
+          fi
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
           files: '*.vsix'
-          generate_release_notes: true
+          body_path: ${{ runner.temp }}/release-notes.md
 # Marketplace / Open VSX publishing is intentionally NOT wired up yet.
 # To enable later: add VSCE_PAT / OVSX_PAT secrets (see .github/REPO_SETUP.md) and
 # either re-add publish steps here or run `pnpm run publish:vsce` / `publish:ovsx`
