@@ -1,10 +1,29 @@
 # VS Code Extension Boilerplate
 
+<!-- template-only:start -->
+
 A production-grade, batteries-included starter for building **VS Code extensions**
 in native TypeScript — with a professional source structure, fast bundling, a real
 test pyramid, CI/CD, and a fully wired **Claude Agent** setup.
 
-> Replace `your-publisher-id` / `your-org` / `your-name` placeholders before publishing.
+## Start your own extension
+
+1. On GitHub, click **Use this template** → _Create a new repository_, then clone it.
+   Without GitHub: `npx degit SekiroKenjii/vs-ext-boilerplate my-extension` (then `git init`).
+2. `corepack enable && pnpm install`
+3. `pnpm run init` — prompts for your extension id, display name, publisher, GitHub
+   owner, and author; rewrites every ID and placeholder across the repo, resets the
+   version and changelog, and removes itself.
+4. Review the diff, commit, and press **F5**.
+
+Non-interactive (CI/scripted):
+
+```bash
+pnpm run init -- --name my-extension --display-name "My Extension" \
+  --publisher my-publisher --owner my-github-user --yes
+```
+
+<!-- template-only:end -->
 
 ## Features
 

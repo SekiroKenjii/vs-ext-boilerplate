@@ -14,6 +14,17 @@ bash scripts/setup-repo.sh            # or: bash scripts/setup-repo.sh owner/rep
 
 This enables auto-merge + branch cleanup and applies branch protection on `main`.
 
+<!-- template-only:start -->
+
+For the boilerplate repo itself, also mark it as a **template repository** so users
+get a _Use this template_ button (UI: **Settings → General → Template repository**):
+
+```bash
+gh repo edit --template
+```
+
+<!-- template-only:end -->
+
 ### PowerShell (no script)
 
 ```powershell

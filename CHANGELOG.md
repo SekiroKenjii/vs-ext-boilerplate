@@ -6,6 +6,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- `pnpm run init` — one-time template initializer that rebrands the boilerplate into
+  your own extension (interactive, or flag-driven with `--yes`) and removes itself.
+
 ## [0.1.0] - 2026-06-30
 
 ### Added
