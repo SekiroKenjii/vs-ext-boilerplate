@@ -6,16 +6,13 @@ allowBuilds:
   # that aren't present. Left disabled by default.
   '@vscode/vsce-sign': false
   keytar: false
-minimumReleaseAgeExclude:
-  - '@typescript-eslint/eslint-plugin@8.62.1'
-  - '@typescript-eslint/parser@8.62.1'
-  - '@typescript-eslint/project-service@8.62.1'
-  - '@typescript-eslint/scope-manager@8.62.1'
-  - '@typescript-eslint/tsconfig-utils@8.62.1'
-  - '@typescript-eslint/type-utils@8.62.1'
-  - '@typescript-eslint/types@8.62.1'
-  - '@typescript-eslint/typescript-estree@8.62.1'
-  - '@typescript-eslint/utils@8.62.1'
-  - '@typescript-eslint/visitor-keys@8.62.1'
-  - prettier@3.9.4
-  - typescript-eslint@8.62.1
+# Disable pnpm's release-age supply-chain gate for this project so installs are
+# deterministic everywhere: a committed, reviewed lockfile installs identically
+# regardless of when its packages were published. Without this, `pnpm install
+# --frozen-lockfile` in CI can fail whenever the lockfile contains a package
+# published within the last day (e.g. a just-merged Dependabot bump).
+#
+# Supply-chain *maturity* is instead enforced at update time via Dependabot's
+# cooldown (see .github/dependabot.yml), which is the correct layer: gate what
+# you adopt, not what you reproduce.
+minimumReleaseAge: 0
